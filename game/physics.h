@@ -29,7 +29,7 @@ int lineintersectline2(float *intersectpoint,float *normal,float *scale,float *s
 struct
   {
   int numofbonds;
-  struct
+  struct temp_bond_t
     {
     int part1;
     int part2;

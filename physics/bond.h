@@ -26,7 +26,7 @@ void createbond(int part1,int part2,int type,int objectnum);
 void deletebond(int bondnum);
 
 int numofbonds;
-struct
+struct bond_t
   {
   int part1;
   int part2;

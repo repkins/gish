@@ -31,7 +31,7 @@ void applyforceparticle(int particlenum,float force[3]);
 void getforceparticle(int particlenum,float force[3]);
 
 int numofparticles;
-struct
+struct particle_t
   {
   float position[3];
   float prevposition[3];

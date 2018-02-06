@@ -171,6 +171,9 @@ SDL_PixelFormat *sdlpixelformat;
 #include "video/glfunc.h"
 #include "video/text.h"
 #include "video/texture.h"
+#include "save/savegame.h"
+#include "save/savegamefile.h"
+#include "save/changes.h"
 
 #include "audio/audio.c"
 #include "game/ai.c"
@@ -229,6 +232,9 @@ SDL_PixelFormat *sdlpixelformat;
 #include "video/glfunc.c"
 #include "video/text.c"
 #include "video/texture.c"
+#include "save/savegame.c"
+#include "save/savegamefile.c"
+#include "save/changes.c"
 
 Uint8 iconmask[128]={
 0x00,0x00,0x00,0x00,

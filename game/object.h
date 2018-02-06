@@ -38,7 +38,7 @@ void objecttimetolive(void);
 void createcar(float position[3],float sizex,float sizey,float mass,float friction);
 
 int numofobjects;
-struct
+struct object_t
   {
   int type;
   int texturenum;
@@ -107,7 +107,7 @@ struct
   } objecttype[128];
 
 int numofropes;
-struct
+struct rope_t
   {
   int type;
   int part1;
