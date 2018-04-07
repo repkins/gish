@@ -12,3 +12,10 @@ replay
 sound
 texture
 tile*
+.vs
+Release
+Debug
+*.ncb
+*.pdb
+*.vcxproj.user
+*.suo
