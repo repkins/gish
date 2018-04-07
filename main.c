@@ -299,6 +299,12 @@ int main (int argc,char *argv[])
       config.sound=1;
     if (strcmp("-nomusic",argv[count])==0)
       option.music=0;
+    if (strcmp("-music", argv[count]) == 0)
+      option.music = 1;
+    if (strcmp("-windowed", argv[count]) == 0)
+      windowinfo.fullscreen = 0;
+    if (strcmp("-fullscreen", argv[count]) == 0)
+      windowinfo.fullscreen = 1;
     }
 
   saveconfig();

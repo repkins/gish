@@ -426,4 +426,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define TXT_CAMPAIGN_EDITOR             "Campaign Editor"
 #define TXT_LEVEL_EDITOR                "Level Editor"
 #define TXT_ADD_LEVEL                   "Add Level"
-#define TXT_DELETE_LEVEL                "Delete Level"
+#define TXT_DELETE_LEVEL                "Delete Last Level"
+
+#define TXT_LOADCAMPAIGN                "Load Campaign"
+#define TXT_LEVELMUSIC                  "Level Music"

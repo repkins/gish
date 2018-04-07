@@ -540,7 +540,8 @@ void savemappack(void)
 
 void newmappackmenu(void)
   {
-  int count;
+  int count, curlvl=0;
+  char musicvar[10];
 
   joystickmenu=0;
 
@@ -569,12 +570,41 @@ void newmappackmenu(void)
     setmenuitem(MO_STRINGINPUT,mappack.name);
 
     createmenuitem(TXT_LEVEL" "TXT_FILENAME"    ",0,128,16,1.0f,1.0f,1.0f,1.0f);
-    setmenuitem(MO_STRINGINPUT,mappack.level[mappack.numoflevels]);
+    setmenuitem(MO_STRINGINPUT,mappack.level[curlvl]);
     setmenuitem(MO_HOTKEY,SCAN_F);
 
     createmenuitem(TXT_LEVELNAME"      ",0,160,16,1.0f,1.0f,1.0f,1.0f);
-    setmenuitem(MO_STRINGINPUT,mappack.levelname[mappack.numoflevels]);
-
+    setmenuitem(MO_STRINGINPUT,mappack.levelname[curlvl]);
+    
+    createmenuitem(TXT_LEVELMUSIC,0,224,16,1.0f,1.0f,1.0f,1.0f);
+    switch (mappack.levelmusic[curlvl][0]) {
+    case 0:
+        strcpy(musicvar, "Random");
+    break;
+    case -1:
+        strcpy(musicvar, "Sewer");
+    break;
+    case 1:
+        strcpy(musicvar, "Cave");
+    break;
+    case 2:
+        strcpy(musicvar, "Hell");
+    break;
+    case 3:
+        strcpy(musicvar, "Egypt");
+    break;
+    case 4:
+        strcpy(musicvar, "Church");
+    break;
+    case 5:
+        strcpy(musicvar, "Boss");
+    break;
+    }
+    drawtext(musicvar,0,240,12,1.0f,1.0f,1.0f,1.0f);
+    
+    createmenuitem(TXT_LOADCAMPAIGN,320|TEXT_CENTER,0,16,1.0f,1.0f,1.0f,1.0f);
+    setmenuitem(MO_HOTKEY,SCAN_L);
+    
     checksystemmessages();
     checkkeyboard();
     checkmouse();
@@ -598,22 +628,56 @@ void newmappackmenu(void)
 
     SDL_GL_SwapBuffers();
 
+    if (keyboard[SCAN_Q] && !prevkeyboard[SCAN_Q]) {
+        if (menuitem[8].active)
+        {
+            if (mappack.levelmusic[curlvl][0]<5)
+                mappack.levelmusic[curlvl][0]++;
+        } else {
+            if (curlvl<mappack.numoflevels)
+                curlvl++;
+        }
+    }
+    if (keyboard[SCAN_Z] && !prevkeyboard[SCAN_Z]) {
+        if (menuitem[8].active)
+        {
+            if (mappack.levelmusic[curlvl][0]>=0)
+                mappack.levelmusic[curlvl][0]--;
+        } else {
+            if (curlvl>0)
+                curlvl--;
+        }
+    }
+    
     if (menuitem[2].active)
       {
       if (mappack.level[mappack.numoflevels][0]!=0)
-      if (mappack.numoflevels<63)
+      if (mappack.numoflevels<63 && curlvl==mappack.numoflevels)
         {
         strcpy(mappack.level[mappack.numoflevels+1],mappack.level[mappack.numoflevels]);
         strcpy(mappack.levelname[mappack.numoflevels+1],mappack.levelname[mappack.numoflevels]);
+        strcpy(mappack.levelmusic[mappack.numoflevels+1],mappack.levelmusic[mappack.numoflevels]);
         mappack.numoflevels++;
+        
+        curlvl = mappack.numoflevels;
         }
       menuitem[2].active=0;
       }
     if (menuitem[3].active)
       {
-      if (mappack.numoflevels>0)
+      if (mappack.numoflevels>0) 
+        {
         mappack.numoflevels--;
+        
+//        curlvl--;
+        }
       menuitem[3].active=0;
+      }
+    if (menuitem[9].active)
+      {
+        loadmappack();
+        
+        menuitem[9].active=0;
       }
     }
 

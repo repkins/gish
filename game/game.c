@@ -199,7 +199,7 @@ void gameloop(void)
         {
         if (game.dialogdelay>0)
           game.dialogdelay--;
-  
+
         count2=0;
         if (game.dialogdelay==0)
           count2=1;
@@ -211,7 +211,7 @@ void gameloop(void)
         if (control[0].button[count]!=-1)
         if (joystick[control[0].joysticknum].button[control[0].button[count]] && !prevjoystick[control[0].joysticknum].button[control[0].button[count]])
           count2=1;
-  
+
         if (count2==1)
           {
           game.dialog--;
@@ -293,6 +293,15 @@ void gameloop(void)
       }
     if (level.gametype==11)
       game.songnum=7;
+    if (mappack.active) {
+        if (mappack.levelmusic[playermappack[playernum].levelnum-1][0] == -1) {
+            game.songnum = 0;
+        } else {
+            if (mappack.levelmusic[playermappack[playernum].levelnum-1][0] > 0) {
+                game.songnum = mappack.levelmusic[playermappack[playernum].levelnum-1][0];
+            }
+        }
+    }
     /*
     if (level.gametype==10)
       game.songnum=4;
@@ -395,28 +404,28 @@ void gameloop(void)
     if (game.oldschool==1 || game.oldschool==2)// || game.oldschool==3)
       {
       setuptextdisplay();
-  
+
       if (game.oldschool==1)// || game.oldschool==3)
         glBindTexture(GL_TEXTURE_2D,texture[334].glname);
       if (game.oldschool==2)
         glBindTexture(GL_TEXTURE_2D,texture[333].glname);
-  
+
       glBegin(GL_QUADS);
-    
+
       glColor4f(1.0f,1.0f,1.0f,1.0f);
-    
+
       glTexCoord2f(0.0f,1.0f);
       glVertex3f(-1.0f,0.75f,-1.0f);
-    
+
       glTexCoord2f(1.0f,1.0f);
       glVertex3f(1.0f,0.75f,-1.0f);
-    
+
       glTexCoord2f(1.0f,0.0f);
       glVertex3f(1.0f,-0.75f,-1.0f);
-    
+
       glTexCoord2f(0.0f,0.0f);
       glVertex3f(-1.0f,-0.75f,-1.0f);
-    
+
       glEnd();
       }
 
@@ -427,14 +436,14 @@ void gameloop(void)
       glDisable(GL_TEXTURE_2D);
 
       glBegin(GL_QUADS);
-    
+
       glColor4f(0.0f,0.0f,0.0f,(float)(100-game.exitdelay)*0.01f);
-    
+
       glVertex3f(-1.0f,0.75f,-1.0f);
       glVertex3f(1.0f,0.75f,-1.0f);
       glVertex3f(1.0f,-0.75f,-1.0f);
       glVertex3f(-1.0f,-0.75f,-1.0f);
-    
+
       glEnd();
 
       glEnable(GL_TEXTURE_2D);
@@ -449,12 +458,12 @@ void gameloop(void)
         glColor4f(0.5f,0.0f,0.0f,(float)(100-game.exitdelay)*0.01f);
       else
         glColor4f(1.0f-(float)(100-game.exitdelay)*0.01f,0.0f,0.0f,(float)(100-game.exitdelay)*0.01f);
-    
+
       glVertex3f(-1.0f,0.75f,-1.0f);
       glVertex3f(1.0f,0.75f,-1.0f);
       glVertex3f(1.0f,-0.75f,-1.0f);
       glVertex3f(-1.0f,-0.75f,-1.0f);
-    
+
       glEnd();
 
       glEnable(GL_TEXTURE_2D);
@@ -485,14 +494,14 @@ void gameloop(void)
       glDisable(GL_TEXTURE_2D);
 
       glBegin(GL_QUADS);
-    
+
       glColor4f(0.0f,0.0f,0.0f,(float)(20-game.exitdelay)*0.05f);
-    
+
       glVertex3f(-1.0f,0.75f,-1.0f);
       glVertex3f(1.0f,0.75f,-1.0f);
       glVertex3f(1.0f,-0.75f,-1.0f);
       glVertex3f(-1.0f,-0.75f,-1.0f);
-    
+
       glEnd();
 
       glEnable(GL_TEXTURE_2D);
@@ -568,9 +577,9 @@ void gameloop(void)
         deletesound(count);
 
       setuptextdisplay();
-    
+
       drawtext(TXT_LOADINGEDITOR,(320|TEXT_CENTER),240,16,1.0f,1.0f,1.0f,1.0f);
-    
+
       SDL_GL_SwapBuffers();
 
       for (count=0;count<20;count++)
@@ -714,7 +723,7 @@ void simulation(void)
           vec[1]=(float)((rnd()&255)-127)/1270.0f;
           vec[2]=0.0f;
           addvectors(vec,vec,object[count].velocity);
-  
+
           createparticle(5,object[count].position,vec,0.25f,-1,100+(rnd()&63));
           particle[numofparticles-1].rendersize=0.125+(float)(rnd()&127)/1000.0f;
           if (count==0)

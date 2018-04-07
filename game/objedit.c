@@ -26,6 +26,7 @@ void editlevelobjects(void)
   int simtimer;
   int simcount;
   float vec[3],vec2[3];
+  int prevoccobjnum,lastprevoccobjnum=-1;
 
   simtimer=SDL_GetTicks();
 
@@ -140,39 +141,45 @@ void editlevelobjects(void)
             vec[2]=0.0f;
             }
 
-    
-          memset(&level.object[level.numofobjects],0,sizeof(level.object[level.numofobjects]));
-          level.object[level.numofobjects].type=editor.objecttype;
-          level.object[level.numofobjects].link=-1;
-          copyvector(level.object[level.numofobjects].position,vec);
-          if (editor.objectnum==-1 || level.object[level.numofobjects].type!=level.object[editor.objectnum].type)
+          if (keyboard[SCAN_R])
             {
-            level.object[level.numofobjects].texturenum=0;
-            level.object[level.numofobjects].size[0]=1.0f;
-            level.object[level.numofobjects].size[1]=1.0f;
-            level.object[level.numofobjects].mass=1.0f;
-            level.object[level.numofobjects].friction=0.8f;
-            level.object[level.numofobjects].lightcolor[0]=1.0f;
-            level.object[level.numofobjects].lightcolor[1]=1.0f;
-            level.object[level.numofobjects].lightcolor[2]=1.0f;
-            level.object[level.numofobjects].lightintensity=16.0f;
+            copyvector(level.object[editor.objectnum].position,vec);
             }
           else
             {
-            level.object[level.numofobjects].texturenum=level.object[editor.objectnum].texturenum;
-            level.object[level.numofobjects].size[0]=level.object[editor.objectnum].size[0];
-            level.object[level.numofobjects].size[1]=level.object[editor.objectnum].size[1];
-            level.object[level.numofobjects].mass=level.object[editor.objectnum].mass;
-            level.object[level.numofobjects].friction=level.object[editor.objectnum].friction;
-            level.object[level.numofobjects].lighttype=level.object[editor.objectnum].lighttype;
-            level.object[level.numofobjects].lightcolor[0]=level.object[editor.objectnum].lightcolor[0];
-            level.object[level.numofobjects].lightcolor[1]=level.object[editor.objectnum].lightcolor[1];
-            level.object[level.numofobjects].lightcolor[2]=level.object[editor.objectnum].lightcolor[2];
-            level.object[level.numofobjects].lightintensity=level.object[editor.objectnum].lightintensity;
-            }
+            memset(&level.object[level.numofobjects],0,sizeof(level.object[level.numofobjects]));
+            level.object[level.numofobjects].type=editor.objecttype;
+            level.object[level.numofobjects].link=-1;
+            copyvector(level.object[level.numofobjects].position,vec);
+            if (editor.objectnum==-1 || level.object[level.numofobjects].type!=level.object[editor.objectnum].type)
+              {
+              level.object[level.numofobjects].texturenum=0;
+              level.object[level.numofobjects].size[0]=1.0f;
+              level.object[level.numofobjects].size[1]=1.0f;
+              level.object[level.numofobjects].mass=1.0f;
+              level.object[level.numofobjects].friction=0.8f;
+              level.object[level.numofobjects].lightcolor[0]=1.0f;
+              level.object[level.numofobjects].lightcolor[1]=1.0f;
+              level.object[level.numofobjects].lightcolor[2]=1.0f;
+              level.object[level.numofobjects].lightintensity=16.0f;
+              }
+            else
+              {
+              level.object[level.numofobjects].texturenum=level.object[editor.objectnum].texturenum;
+              level.object[level.numofobjects].size[0]=level.object[editor.objectnum].size[0];
+              level.object[level.numofobjects].size[1]=level.object[editor.objectnum].size[1];
+              level.object[level.numofobjects].mass=level.object[editor.objectnum].mass;
+              level.object[level.numofobjects].friction=level.object[editor.objectnum].friction;
+              level.object[level.numofobjects].lighttype=level.object[editor.objectnum].lighttype;
+              level.object[level.numofobjects].lightcolor[0]=level.object[editor.objectnum].lightcolor[0];
+              level.object[level.numofobjects].lightcolor[1]=level.object[editor.objectnum].lightcolor[1];
+              level.object[level.numofobjects].lightcolor[2]=level.object[editor.objectnum].lightcolor[2];
+              level.object[level.numofobjects].lightintensity=level.object[editor.objectnum].lightintensity;
+              }
 
-          editor.objectnum=level.numofobjects;
-          level.numofobjects++;
+            editor.objectnum=level.numofobjects;
+            level.numofobjects++;
+            }
           }
         }
       if (keyboard[SCAN_K])
@@ -199,15 +206,23 @@ void editlevelobjects(void)
         vec[0]=view.position[0]+(float)(mouse.x-320)/32.0f;
         vec[1]=view.position[1]+(float)(240-mouse.y)/32.0f;
         vec[2]=0.0f;
-  
+
         editor.objectnum=-1;
-  
+        prevoccobjnum=-1;
         for (count=0;count<level.numofobjects;count++)
           {
           subtractvectors(vec2,vec,level.object[count].position);
           if (vectorlength(vec2)<0.5f)
+            {
+            prevoccobjnum=editor.objectnum;
+
             editor.objectnum=count;
+
+            if (count==lastprevoccobjnum)
+              break;
+            }
           }
+        lastprevoccobjnum=prevoccobjnum;
         }
       }
     if (!menuinputkeyboard)
@@ -283,15 +298,15 @@ void editlevelobjects(void)
         if (keyboard[SCAN_LEFT] && !prevkeyboard[SCAN_LEFT])
         if (level.object[editor.objectnum].size[0]>vec[0])
           level.object[editor.objectnum].size[0]-=vec[0];
-    
+
         if (keyboard[SCAN_RIGHT] && !prevkeyboard[SCAN_RIGHT])
         if (level.object[editor.objectnum].size[0]<16.0f)
           level.object[editor.objectnum].size[0]+=vec[0];
-  
+
         if (keyboard[SCAN_DOWN] && !prevkeyboard[SCAN_DOWN])
         if (level.object[editor.objectnum].size[1]>vec[0])
           level.object[editor.objectnum].size[1]-=vec[0];
-    
+
         if (keyboard[SCAN_UP] && !prevkeyboard[SCAN_UP])
         if (level.object[editor.objectnum].size[1]<16.0f)
           level.object[editor.objectnum].size[1]+=vec[0];
@@ -315,7 +330,7 @@ void editlevelobjects(void)
             level.object[editor.objectnum].texturenum=255;
           }
         }
-  
+
       if (keyboard[SCAN_Q] && !prevkeyboard[SCAN_Q])
         {
         if (!keyboard[SCAN_SHIFT])
@@ -408,7 +423,7 @@ void renderlevelobjects(void)
     if (level.object[count].type>=2 && level.object[count].type<=5)
       {
       glBindTexture(GL_TEXTURE_2D,texture[level.object[count].texturenum+256].glname);
-  
+
       glBegin(GL_QUADS);
 
       glColor4f(1.0f,1.0f,1.0f,1.0f);
@@ -460,7 +475,7 @@ void renderlevelobjects(void)
     if (level.object[count].type==8)
       {
       glBindTexture(GL_TEXTURE_2D,texture[level.object[count].texturenum+256].glname);
-  
+
       glBegin(GL_QUADS);
 
       glColor4f(1.0f,1.0f,1.0f,1.0f);
@@ -482,7 +497,7 @@ void renderlevelobjects(void)
     if (level.object[count].type==9 || level.object[count].type==10)
       {
       glBindTexture(GL_TEXTURE_2D,texture[level.object[count].texturenum+256].glname);
-  
+
       glBegin(GL_QUADS);
 
       glColor4f(1.0f,1.0f,1.0f,1.0f);
@@ -504,7 +519,7 @@ void renderlevelobjects(void)
     if (level.object[count].type>=20 && level.object[count].type<40)
       {
       glBindTexture(GL_TEXTURE_2D,texture[animation[level.object[count].type-20].stand[0]].glname);
-  
+
       glBegin(GL_QUADS);
 
       glColor4f(1.0f,1.0f,1.0f,1.0f);
@@ -526,14 +541,14 @@ void renderlevelobjects(void)
     if (level.object[count].type==11)
       {
       glBindTexture(GL_TEXTURE_2D,texture[level.object[count].texturenum+256].glname);
-  
+
       glBegin(GL_QUADS);
 
       glColor4f(1.0f,1.0f,1.0f,1.0f);
 
       glTexCoord2f(0.0f,0.0f);
       glVertex3f(level.object[count].position[0]-0.125f,level.object[count].position[1]+0.5f,0.0f);
-                                                   
+
       glTexCoord2f(1.0f,0.0f);
       glVertex3f(level.object[count].position[0]+0.125f,level.object[count].position[1]+0.5f,0.0f);
 
@@ -548,14 +563,14 @@ void renderlevelobjects(void)
     if (level.object[count].type==12)
       {
       glBindTexture(GL_TEXTURE_2D,texture[level.object[count].texturenum+256].glname);
-  
+
       glBegin(GL_QUADS);
 
       glColor4f(1.0f,1.0f,1.0f,1.0f);
 
       glTexCoord2f(0.0f,0.0f);
       glVertex3f(level.object[count].position[0]-0.5f,level.object[count].position[1]+0.25f,0.0f);
-                                                   
+
       glTexCoord2f(1.0f,0.0f);
       glVertex3f(level.object[count].position[0]+0.5f,level.object[count].position[1]+0.125f,0.0f);
 
@@ -570,14 +585,14 @@ void renderlevelobjects(void)
     if (level.object[count].type==13)
       {
       glBindTexture(GL_TEXTURE_2D,texture[level.object[count].texturenum+256].glname);
-  
+
       glBegin(GL_QUADS);
 
       glColor4f(1.0f,1.0f,1.0f,1.0f);
 
       glTexCoord2f(0.0f,0.0f);
       glVertex3f(level.object[count].position[0]-0.25f,level.object[count].position[1]+0.5f,0.0f);
-                                                   
+
       glTexCoord2f(1.0f,0.0f);
       glVertex3f(level.object[count].position[0]+0.25f,level.object[count].position[1]+0.5f,0.0f);
 
@@ -592,14 +607,14 @@ void renderlevelobjects(void)
     if (level.object[count].type==14)
       {
       glBindTexture(GL_TEXTURE_2D,texture[level.object[count].texturenum+256].glname);
-  
+
       glBegin(GL_QUADS);
 
       glColor4f(1.0f,1.0f,1.0f,1.0f);
 
       glTexCoord2f(0.0f,0.0f);
       glVertex3f(level.object[count].position[0]-0.5f,level.object[count].position[1]+0.125f,0.0f);
-                                                   
+
       glTexCoord2f(1.0f,0.0f);
       glVertex3f(level.object[count].position[0]+0.5f,level.object[count].position[1]+0.25f,0.0f);
 
@@ -614,7 +629,7 @@ void renderlevelobjects(void)
     if (level.object[count].type==15 || level.object[count].type==16 || level.object[count].type==18)
       {
       glDisable(GL_TEXTURE_2D);
-  
+
       glBegin(GL_LINES);
 
       glColor4f(1.0f,1.0f,1.0f,1.0f);
