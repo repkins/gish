@@ -264,11 +264,15 @@ Uint8 iconmask[128]={
 0x00,0x7F,0xFF,0xF0,
 0x00,0x00,0x00,0x00 };
 
+void load_plugin();
+
 int main (int argc,char *argv[])
   {
   int count;
   int flags;
   const char *temp;
+
+  load_plugin();
 
   checkbigendian();
 
@@ -396,3 +400,12 @@ int main (int argc,char *argv[])
 
   return(0);
   }
+
+void load_plugin()
+{
+  HMODULE pluginHandle = LoadLibraryA("GishPlugin.dll");
+  if (pluginHandle == NULL)
+  {
+    printf("failed loading dll");
+  }
+}
