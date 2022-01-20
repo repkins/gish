@@ -22,8 +22,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 void objectanimation(void);
 void loadanimations(void);
 
-int numofanimations;
-struct
+extern int numofanimations;
+extern struct Animation
   {
   int loaded;
   int stand[2];

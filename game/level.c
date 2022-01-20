@@ -19,6 +19,18 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+
+unsigned int cryptdata[1048576];
+
+int textureused[512];
+
+Collision collision;
+
+int levelblocknum;
+float levelfriction;
+
+Level level;
+
 int lineintersectlevel(float *intersectpoint,float *normal,float *scale,float *startpoint,float *endpoint)
   {
   int count,count2,count3;

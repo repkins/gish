@@ -19,6 +19,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+// #pragma once
+
 int lineintersectlevel(float *intersectpoint,float *normal,float *scale,float *startpoint,float *endpoint);
 void savelevel(char *filename);
 void loadlevel(char *filename);
@@ -33,22 +35,23 @@ void encryptdata(unsigned int code,unsigned int codepair,int cryptdatasize);
 void decryptdata(unsigned int code,int cryptdatasize);
 void byteswapdata(int cryptdatasize);
 
-unsigned int cryptdata[1048576];
+extern unsigned int cryptdata[1048576];
 
-int textureused[512];
+extern int textureused[512];
 
-struct
+typedef struct
   {
   int blocknum;
   int blockx;
   int blocky;
   float friction;
-  } collision;
+  } Collision;
+extern Collision collision;
 
-int levelblocknum;
-float levelfriction;
+extern int levelblocknum;
+extern float levelfriction;
 
-struct
+typedef struct
   {
   char background[32];
   int tileset;
@@ -90,4 +93,5 @@ struct
     int obj2;
     int obj2part;
     } rope[1024];
-  } level;
+  } Level;
+extern Level level;

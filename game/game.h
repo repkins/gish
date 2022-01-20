@@ -19,21 +19,24 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+// #pragma once
+
 void gameloop(void);
 void renderlevel(void);
 void simulation(void);
 void getinputs(void);
 
-struct
+typedef struct
   {
   float position[3];
   float orientation[3][3];
   float zoom;
   int zoomx;
   int zoomy;
-  } view;
+  } View;
+extern View view;
 
-struct
+typedef struct
   {
   int pause;
   int type;
@@ -68,4 +71,5 @@ struct
   int editing;
   int godmode;
   int godparticle;
-  } game;
+  } Game;
+extern Game game;

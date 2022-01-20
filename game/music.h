@@ -33,6 +33,6 @@ struct OGGMEMORYFILE
   int dataread;
   };
 
-struct OGGMEMORYFILE oggmemoryfile[16];
+extern struct OGGMEMORYFILE oggmemoryfile[16];
 
-ov_callbacks vorbiscallbacks;
+extern ov_callbacks vorbiscallbacks;

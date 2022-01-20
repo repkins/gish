@@ -19,6 +19,14 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+int numofobjects;
+Object object[512];
+
+ObjectType objecttype[128];
+
+int numofropes;
+Rope rope[1024];
+
 void createbox(float position[3],float sizex,float sizey,float mass,float friction)
   {
   int count,count2;

@@ -84,31 +84,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <vorbis/vorbisenc.h>
 #include <vorbis/vorbisfile.h>
 
+#include <main.h>
+
 #define pi 3.14159265359
 
 int debugit=0;
-
-#ifdef WINDOWS
-  #define INLINE _inline
-#else
-  #define INLINE inline
-#endif
 
 FILE *fp;
 
 char versiontext[]="Version 1.53";
 
-struct {
-  int resolutionx;
-  int resolutiony;
-  int bitsperpixel;
-  int depthbits;
-  int stencilbits;
-  int fullscreen;
-  int sound;
-  int music;
-  int joystick;
-  } config;
+Config config;
 
 const SDL_VideoInfo *sdlvideoinfo;
 SDL_PixelFormat *sdlpixelformat;
@@ -173,7 +159,6 @@ SDL_PixelFormat *sdlpixelformat;
 #include "video/texture.h"
 
 #include "audio/audio.c"
-#include "game/ai.c"
 #include "game/animation.c"
 #include "game/audio.c"
 #include "game/block.c"

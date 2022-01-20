@@ -19,6 +19,22 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+/*
+#include <GL/gl.h>
+#include <SDL_video.h>
+#include <time.h>
+
+#include "game/english.h"
+
+#include <video\glext.h>
+#include <video\text.h>
+#include <game\animation.h>
+#include <main.h>
+#include <video\texture.h>
+#include <game\music.h>
+*/
+
+
 void mainmenu(void)
   {
   int count,temp;

@@ -19,6 +19,15 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+/*
+#include "text.h"
+*/
+
+unsigned char textstring2[1024];
+unsigned char textstring3[1024];
+
+struct Font font;
+
 void drawtext(unsigned char *textstring,int x,int y,int textsize,float red,float green,float blue,float alpha,...)
   {
   int count,count2;

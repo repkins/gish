@@ -19,6 +19,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+// #pragma once
+
 void createbox(float position[3],float sizex,float sizey,float mass,float friction);
 void createtarboy(float position[3]);
 void createwheel(float position[3],float sizex,float sizey,float mass,float friction,int anchor);
@@ -37,8 +39,8 @@ void deleterope(int ropenum);
 void objecttimetolive(void);
 void createcar(float position[3],float sizex,float sizey,float mass,float friction);
 
-int numofobjects;
-struct
+extern int numofobjects;
+typedef struct
   {
   int type;
   int texturenum;
@@ -85,9 +87,10 @@ struct
   int rotate;
   int ai;
   int beasttype;
-  } object[512];
+  } Object;
+extern Object object[512];
 
-struct
+typedef struct
   {
   int collide[256];
   int numofpoints;
@@ -104,10 +107,11 @@ struct
     int part1;
     int part2;
     } link[256];
-  } objecttype[128];
+  } ObjectType;
+extern ObjectType objecttype[128];
 
-int numofropes;
-struct
+extern int numofropes;
+typedef struct
   {
   int type;
   int part1;
@@ -120,4 +124,5 @@ struct
   float cyclelength;
   float cyclecount;
   float range;
-  } rope[1024];
+  } Rope;
+extern Rope rope[1024];
