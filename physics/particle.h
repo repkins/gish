@@ -19,6 +19,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#pragma once
+
 #define PHYSICSCYCLE 50.0f
 
 void particlecollisionlevel(int particlenum);
@@ -30,8 +32,8 @@ void deleteparticle(int particlenum);
 void applyforceparticle(int particlenum,float force[3]);
 void getforceparticle(int particlenum,float force[3]);
 
-int numofparticles;
-struct
+extern int numofparticles;
+extern struct Particle
   {
   float position[3];
   float prevposition[3];
@@ -54,7 +56,7 @@ struct
   int texturenum;
   } particle[16384];
 
-struct 
+extern struct ParticleType
   {
   float drag;
   float gravity;

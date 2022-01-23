@@ -19,20 +19,40 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-/*
-#include <GL/gl.h>
-#include <SDL_video.h>
+
 #include <time.h>
+#include <windows.h>
+#include <GL/gl.h>
+#include <SDL.h>
 
 #include "game/english.h"
 
 #include <video\glext.h>
 #include <video\text.h>
 #include <game\animation.h>
-#include <main.h>
 #include <video\texture.h>
 #include <game\music.h>
-*/
+#include <game\physics.h>
+#include <game\object.h>
+#include <game\editor.h>
+#include <game\game.h>
+#include <math\vector.h>
+#include <menu\menu.h>
+#include <game\audio.h>
+#include <sdl\event.h>
+#include <input\keyboard.h>
+#include <input\mouse.h>
+#include <input\mouse.h>
+#include <input\joystick.h>
+#include <audio\audio.h>
+#include <game\socket.h>
+#include <game\credits.h>
+#include <game\options.h>
+#include <game\player.h>
+#include <game\vsmode.h>
+#include <game\lighting.h>
+#include <game\mainmenu.h>
+#include <game\config.h>
 
 
 void mainmenu(void)

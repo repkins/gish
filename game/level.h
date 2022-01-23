@@ -39,19 +39,18 @@ extern unsigned int cryptdata[1048576];
 
 extern int textureused[512];
 
-typedef struct
+extern struct Collision
   {
   int blocknum;
   int blockx;
   int blocky;
   float friction;
-  } Collision;
-extern Collision collision;
+  } collision;
 
 extern int levelblocknum;
 extern float levelfriction;
 
-typedef struct
+extern struct Level
   {
   char background[32];
   int tileset;
@@ -93,5 +92,4 @@ typedef struct
     int obj2;
     int obj2part;
     } rope[1024];
-  } Level;
-extern Level level;
+  } level;

@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <game\level.h>
 #include <game\object.h>
 #include <game\game.h>
+#include <game\random.h>
 #include <math\vector.h>
 
 void objectai(int objectnum)

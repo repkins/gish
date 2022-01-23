@@ -19,6 +19,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#pragma once
+
 void custommenu(void);
 void loadlevelmenu(void);
 void playcampaignmenu(void);
@@ -29,9 +31,9 @@ void loadmappack(void);
 void savemappack(void);
 void newmappackmenu(void);
 
-char levellist[1024][32];
+extern char levellist[1024][32];
 
-struct
+extern struct MapPack
   {
   int active;
   int numoflevels;
@@ -43,7 +45,7 @@ struct
   char ending[16][64];
   } mappack;
 
-struct
+extern struct PlayerMapPack
   {
   int levelnum;
   int numoflives;

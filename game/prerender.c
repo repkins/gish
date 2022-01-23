@@ -19,6 +19,16 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <game\prerender.h>
+#include <game\object.h>
+#include <math\vector.h>
+#include <game\game.h>
+#include <physics\particle.h>
+#include <game\boss.h>
+#include <game\physics.h>
+#include <physics\bond.h>
+#include <game\render.h>
+
 void setuprenderobjects(void)
   {
   int count,count2;

@@ -19,6 +19,14 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <windows.h>
+#include <gl\GL.h>
+#include <video\text.h>
+#include <sdl\event.h>
+#include <stdio.h>
+#include <sdl\file.h>
+#include <video\glfunc.h>
+
 void setupperspectiveviewport(int viewportx,int viewporty,int viewportwidth,int viewportheight,float nearplane,float farplane)
   {
   float heightwidthratio;
@@ -137,7 +145,7 @@ void screenshot(void)
   glReadPixels(0,0,windowinfo.resolutionx,windowinfo.resolutiony,GL_RGBA,GL_UNSIGNED_BYTE,screenshotbuffer);
 
   count=0;
-
+  
   while ((fp=fopen(filename,"rb"))!=NULL && count<1000) 
     {
     count++;

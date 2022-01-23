@@ -19,7 +19,9 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#pragma once
+
 unsigned int rotint(unsigned int x,int rotnum);
 void launchwebpage(char *webpagename);
 
-char sockdata[1024];
+extern char sockdata[1024];

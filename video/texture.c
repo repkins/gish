@@ -19,6 +19,15 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <windows.h>
+#include <gl\GL.h>
+#include <video\texture.h>
+#include <direct.h>
+#include <stdio.h>
+#include <main.h>
+#include <sdl\file.h>
+#include <sdl\endian.h>
+
 char lasttextureloaded[32];
 struct Texture texture[2048];
 struct TgaHeader tgaheader;

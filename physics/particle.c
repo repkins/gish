@@ -19,6 +19,19 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <physics\particle.h>
+#include <game\level.h>
+#include <math\vector.h>
+#include <game\block.h>
+#include <physics\bond.h>
+#include <game\object.h>
+#include <game\physics.h>
+#include <game\game.h>
+
+int numofparticles;
+struct Particle particle[16384];
+struct ParticleType particletype[16384];
+
 void particlecollisionlevel(int particlenum)
   {
   int count;

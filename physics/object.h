@@ -19,6 +19,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#pragma once
+
 void objectsimulation(void);
 int lineintersectobject(float *intersectpoint,float *normal,float *scale,float *startpoint,float *endpoint,int objectnum,int *particlelist);
 int lineintersectobject2(float *intersectpoint,float *normal,float *scale,float *startpoint,float *endpoint,int objectnum,int *particlelist);

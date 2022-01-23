@@ -20,16 +20,35 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 
+#include <windows.h>
+#include <gl\GL.h>
+#include <direct.h>
+
+#include <game\level.h>
+#include <game\block.h>
+#include <game\physics.h>
+#include <math\vector.h>
+#include <game\editor.h>
+#include <video\texture.h>
+#include <video\glext.h>
+#include <game\mainmenu.h>
+#include <game\object.h>
+#include <physics\particle.h>
+#include <sdl\endian.h>
+#include <game\socket.h>
+#include <game\game.h>
+#include <sdl\file.h>
+
 unsigned int cryptdata[1048576];
 
 int textureused[512];
 
-Collision collision;
+struct Collision collision;
 
 int levelblocknum;
 float levelfriction;
 
-Level level;
+struct Level level;
 
 int lineintersectlevel(float *intersectpoint,float *normal,float *scale,float *startpoint,float *endpoint)
   {

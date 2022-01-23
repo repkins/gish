@@ -19,6 +19,10 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <AL\al.h>
+#include <AL\alc.h>
+#include <vorbis\vorbisfile.h>
+
 #define OGGBUFFERSIZE 4096*8
 
 void setupaudio(void);
@@ -27,20 +31,20 @@ int streamogg(int buffernum);
 void shutdownaudio(void);
 void loadwav(int buffernum,char *filename);
 
-ALCcontext *alcontext;
-ALCdevice *aldevice;
+extern ALCcontext *alcontext;
+extern ALCdevice *aldevice;
 
-int soundenabled;
-ALuint soundbuffer[64];
-int bufferloaded[64];
+extern int soundenabled;
+extern ALuint soundbuffer[64];
+extern int bufferloaded[64];
 
-OggVorbis_File oggstream[2];
+extern OggVorbis_File oggstream[2];
 
-vorbis_info *vorbisinfo;
-vorbis_comment *vorbiscomment;
+extern vorbis_info *vorbisinfo;
+extern vorbis_comment *vorbiscomment;
 
-ALenum oggformat;
-char oggdata[OGGBUFFERSIZE];
+extern ALenum oggformat;
+extern char oggdata[OGGBUFFERSIZE];
 
-ALuint oggsource;
-ALuint oggbuffer[2];
+extern ALuint oggsource;
+extern ALuint oggbuffer[2];

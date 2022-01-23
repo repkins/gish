@@ -19,13 +19,22 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-int numofobjects;
-Object object[512];
+#include <string.h>
+#include <game\object.h>
+#include <math\vector.h>
+#include <physics\particle.h>
+#include <physics\bond.h>
+#include <game\level.h>
+#include <game\animation.h>
+#include <game\audio.h>
+#include <game\game.h>
 
-ObjectType objecttype[128];
+int numofobjects;
+struct Object object[512];
+struct ObjectType objecttype[128];
 
 int numofropes;
-Rope rope[1024];
+struct Rope rope[1024];
 
 void createbox(float position[3],float sizex,float sizey,float mass,float friction)
   {

@@ -19,6 +19,28 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <windows.h>
+#include <gl\GL.h>
+
+#include <main.h>
+#include <game\game.h>
+#include <game\high.h>
+#include <menu\menu.h>
+#include <string.h>
+#include <game\player.h>
+#include <sdl\event.h>
+#include <sdl\file.h>
+#include <game\english.h>
+#include <input\keyboard.h>
+#include <input\mouse.h>
+#include <input\joystick.h>
+#include <audio\audio.h>
+#include <game\music.h>
+#include <game\audio.h>
+#include <video\text.h>
+#include <game\mainmenu.h>
+#include <game\replay.h>
+
 void highscoremenu(int levelnum)
   {
   int count,count2;

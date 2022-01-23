@@ -19,12 +19,19 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <stdio.h>
+#include <parser\parser.h>
+#include <sdl\file.h>
+#include <string.h>
+
+struct Parser parser;
+
 void loadtextfile(char *filename)
   {
   int temp;
 
   parser.textsize=0;
-
+  
   if ((fp=fopen(filename,"rb"))!=NULL)
     {
     temp=fgetc(fp);

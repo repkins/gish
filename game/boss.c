@@ -19,6 +19,15 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <game\boss.h>
+#include <game\object.h>
+#include <game\animation.h>
+#include <game\render.h>
+#include <math\vector.h>
+
+int numofbosses;
+struct Boss boss[16];
+
 void createboss(int type,float position[3])
   {
   memset(&boss[numofbosses],0,sizeof(boss[0]));

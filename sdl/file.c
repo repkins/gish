@@ -19,6 +19,13 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <stdio.h>
+#include <string.h>
+#include <main.h>
+#include <io.h>
+
+FILE* fp;
+
 int comparestrings(const void *arg1,const void *arg2)
   {
   return(strcmp(arg1,arg2));

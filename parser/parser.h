@@ -19,6 +19,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#pragma once
+
 void loadtextfile(char *filename);
 void resetparser(void);
 int findstring(char *str);
@@ -27,7 +29,7 @@ int getint(void);
 float getfloat(void);
 void getstring(char *str,int size);
 
-struct
+extern struct Parser
   {
   int textloc;
   int textsize;

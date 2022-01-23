@@ -19,12 +19,14 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#pragma once
+
 void saveblock(int blocknum);
 void loadblock(int blocknum);
 void setupblockflags(int blocknum);
 void setupblockalpha(int blocknum);
 
-struct
+extern struct Block
   {
   int numoflines;
   float line[64][8];
@@ -39,8 +41,8 @@ struct
   int flags;
   } block[1024];
 
-int numofpolygontemps;
-struct
+extern int numofpolygontemps;
+extern struct PolygonTemp
   {
   int numofverts;
   float vertex[16][2];

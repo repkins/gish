@@ -19,6 +19,10 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#pragma once
+
+extern FILE* fp;
+
 int comparestrings(const void *arg1,const void *arg2);
 int checkfilespec(char *filespec,char *filename);
 void listfiles(char *filespec,char filelist[1024][32],int directories);

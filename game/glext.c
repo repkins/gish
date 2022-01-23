@@ -19,6 +19,21 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <windows.h>
+#include <gl\GL.h>
+
+#include <game\glext.h>
+#include <main.h>
+
+#ifdef WINDOWS
+PFNGLACTIVETEXTUREARBPROC glActiveTextureARB = NULL;
+PFNGLCLIENTACTIVETEXTUREARBPROC glClientActiveTextureARB = NULL;
+PFNGLMULTITEXCOORD2FARBPROC glMultiTexCoord2fARB = NULL;
+PFNGLMULTITEXCOORD2FVARBPROC glMultiTexCoord2fvARB = NULL;
+PFNGLMULTITEXCOORD3FARBPROC glMultiTexCoord3fARB = NULL;
+PFNGLMULTITEXCOORD4FARBPROC glMultiTexCoord4fARB = NULL;
+#endif
+
 void loadglextentions(void)
   {
   char *ext;

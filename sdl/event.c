@@ -19,6 +19,13 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <sdl\event.h>
+#include <SDL.h>
+#include <video\texture.h>
+#include <game\game.h>
+
+struct WindowInfo windowinfo;
+
 void checksystemmessages(void)
   {
   int count;

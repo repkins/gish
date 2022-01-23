@@ -19,6 +19,23 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <windows.h>
+#include <gl\GL.h>
+#include <game\player.h>
+#include <menu\menu.h>
+#include <sdl\event.h>
+#include <game\english.h>
+#include <input\keyboard.h>
+#include <video\text.h>
+#include <input\mouse.h>
+#include <input\joystick.h>
+#include <audio\audio.h>
+#include <game\music.h>
+#include <game\game.h>
+#include <game\audio.h>
+#include <game\mainmenu.h>
+#include <game\level.h>
+
 void versusmodemenu(int versusnum)
   {
   int count;

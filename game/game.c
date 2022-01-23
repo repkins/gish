@@ -19,8 +19,49 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-View view;
-Game game;
+#include <windows.h>
+#include <gl\GL.h>
+#include <time.h>
+#include <stdlib.h>
+#include <SDL.h>
+#include <game\game.h>
+#include <game\setup.h>
+#include <menu\menu.h>
+#include <sdl\event.h>
+#include <video\text.h>
+#include <game\level.h>
+#include <game\mainmenu.h>
+#include <game\english.h>
+#include <input\keyboard.h>
+#include <input\mouse.h>
+#include <input\joystick.h>
+#include <game\options.h>
+#include <game\music.h>
+#include <video\glfunc.h>
+#include <game\audio.h>
+#include <game\lighting.h>
+#include <game\prerender.h>
+#include <game\render.h>
+#include <video\texture.h>
+#include <game\logic.h>
+#include <game\record.h>
+#include <game\replay.h>
+#include <game\animation.h>
+#include <game\editor.h>
+#include <physics\particle.h>
+#include <math\vector.h>
+#include <physics\bond.h>
+#include <game\object.h>
+#include <game\physics.h>
+#include <audio\audio.h>
+#include <game\objfunc.h>
+#include <game\sprite.h>
+#include <game\boss.h>
+#include <game\random.h>
+#include <game\custom.h>
+
+struct View view;
+struct Game game;
 
 void gameloop(void)
   {

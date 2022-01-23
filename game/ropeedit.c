@@ -19,6 +19,24 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <windows.h>
+#include <gl\GL.h>
+#include <game\ropeedit.h>
+#include <game\level.h>
+#include <math\vector.h>
+#include <menu\menu.h>
+#include <sdl\event.h>
+#include <video\text.h>
+#include <game\mainmenu.h>
+#include <input\keyboard.h>
+#include <input\mouse.h>
+#include <video\glfunc.h>
+#include <game\game.h>
+#include <game\lighting.h>
+#include <game\render.h>
+#include <game\objedit.h>
+#include <game\english.h>
+
 void editlevelrope(void)
   {
   int count,count2;

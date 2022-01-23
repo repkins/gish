@@ -19,6 +19,27 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <windows.h>
+#include <gl\GL.h>
+#include <game\replay.h>
+#include <game\object.h>
+#include <game\player.h>
+#include <direct.h>
+#include <stdio.h>
+#include <main.h>
+#include <sdl\file.h>
+#include <game\custom.h>
+#include <menu\menu.h>
+#include <sdl\event.h>
+#include <game\english.h>
+#include <input\keyboard.h>
+#include <input\mouse.h>
+#include <input\joystick.h>
+#include <video\text.h>
+#include <game\game.h>
+#include <game\setup.h>
+#include <game\mainmenu.h>
+
 void saveinputs(void)
   {
   if (numofreplayframes>=65535)
@@ -98,7 +119,7 @@ void savereplay(int levelnum)
   count++;
 
   changeddir=chdir("replay");
-
+  
   if ((fp=fopen(filename,"wb"))!=NULL)
     {
     version=1;

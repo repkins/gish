@@ -19,6 +19,34 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <windows.h>
+#include <gl\GL.h>
+#include <direct.h>
+
+#include <main.h>
+#include <menu\menu.h>
+#include <sdl\event.h>
+#include <game\music.h>
+#include <game\game.h>
+#include <game\audio.h>
+#include <game\english.h>
+#include <game\mainmenu.h>
+#include <game\level.h>
+#include <game\player.h>
+#include <game\mappack.h>
+#include <game\custom.h>
+#include <input\keyboard.h>
+#include <input\mouse.h>
+#include <input\joystick.h>
+#include <audio\audio.h>
+#include <video\text.h>
+#include <sdl\file.h>
+
+char levellist[1024][32];
+
+struct MapPack mappack;
+struct PlayerMapPack playermappack[16];
+
 void custommenu(void)
   {
   int count;

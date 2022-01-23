@@ -19,12 +19,16 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#pragma once
+
+#include <AL\al.h>
+
 void soundsimulation(float position[3],float orientation[3][3]);
 void playsound(int buffernum,float position[3],float velocity[3],float volume,int looping,float pitch,int objectnum,int objectsoundnum);
 void deletesound(int soundnum);
 
-int numofsounds;
-struct
+extern int numofsounds;
+extern struct Sound
   {
   int buffernum;
   int objectnum;

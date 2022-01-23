@@ -19,6 +19,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#pragma once
+
 #define MAXMENUITEMS   256
 #define MO_HOTKEY       1
 #define MO_HIGHLIGHT    2
@@ -49,8 +51,8 @@ int getinputletter(int repeat,int inputflags);
 void addmenuinputchar(int charinput);
 int deleteselectedtext(void);
 
-int numofmenuitems;
-struct
+extern int numofmenuitems;
+extern struct MenuItem
   {
   char label[64];
 	int x;
@@ -77,16 +79,16 @@ struct
   void (*function)();
   } menuitem[MAXMENUITEMS];
 
-int menuinputkeyboard=0;
-int menuinputselectpos;
-int menuinputcursorpos;
-int menuinputinsert;
-char menuinput[256];
-char menuinputtemp[256];
+extern int menuinputkeyboard;
+extern int menuinputselectpos;
+extern int menuinputcursorpos;
+extern int menuinputinsert;
+extern char menuinput[256];
+extern char menuinputtemp[256];
 
-int joymenunum;
-int joystickmenu=1;
+extern int joymenunum;
+extern int joystickmenu;
 
-int currentmenuitem;
+extern int currentmenuitem;
 
-char keyboardlabel[323][16];
+extern char keyboardlabel[323][16];

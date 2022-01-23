@@ -19,6 +19,23 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <windows.h>
+#include <math.h>
+#include <gl\GL.h>
+
+#include <video\texture.h>
+#include <video\glext.h>
+#include <math\vector.h>
+#include <game\render.h>
+#include <game\object.h>
+#include <game\game.h>
+#include <game\level.h>
+#include <game\block.h>
+#include <physics\particle.h>
+#include <sdl\event.h>
+#include <game\glext.h>
+#include <game\prerender.h>
+
 void setuplightingtextures(void)
   {
   int count,count2;

@@ -19,6 +19,25 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <windows.h>
+#include <gl\GL.h>
+#include <SDL.h>
+#include <game\replay.h>
+#include <game\game.h>
+#include <menu\menu.h>
+#include <game\english.h>
+#include <input\keyboard.h>
+#include <sdl\event.h>
+#include <input\mouse.h>
+#include <input\joystick.h>
+#include <game\audio.h>
+#include <video\text.h>
+#include <game\mainmenu.h>
+#include <game\object.h>
+#include <game\setup.h>
+#include <game\player.h>
+#include <game\gamemenu.h>
+
 void postgamemenu(void)
   {
   int count;

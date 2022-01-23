@@ -19,6 +19,23 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <windows.h>
+#include <gl\GL.h>
+
+#include <main.h>
+#include <game\options.h>
+#include <game\socket.h>
+#include <game\config.h>
+#include <input\keyboard.h>
+#include <sdl\event.h>
+#include <menu\menu.h>
+#include <video\text.h>
+#include <input\mouse.h>
+#include <parser\parser.h>
+#include <sdl\file.h>
+
+struct Config config;
+
 void loadconfig(void)
   {
   int count,count2;
@@ -144,7 +161,7 @@ void saveconfig(void)
   config.depthbits=windowinfo.depthbits;
   config.stencilbits=windowinfo.stencilbits;
   config.fullscreen=windowinfo.fullscreen;
-
+  
   if ((fp=fopen("config.txt","wb"))==NULL)
     return;
 

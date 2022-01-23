@@ -19,6 +19,19 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <main.h>
+#include <stdlib.h>
+#include <game\block.h>
+#include <video\texture.h>
+#include <sdl\endian.h>
+#include <direct.h>
+#include <sdl\file.h>
+
+struct Block block[1024];
+
+int numofpolygontemps;
+struct PolygonTemp polygontemp[16];
+
 void saveblock(int blocknum)
   {
   int count;
@@ -30,7 +43,7 @@ void saveblock(int blocknum)
   filename[4]=48+(blocknum/100)%10;
   filename[5]=48+(blocknum/10)%10;
   filename[6]=48+blocknum%10;
-
+  
   if ((fp=fopen(filename,"wb"))!=NULL)
     {
     fwrite2(&block[blocknum].numoflines,4,1,fp);

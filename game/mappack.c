@@ -19,6 +19,27 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <windows.h>
+#include <gl\GL.h>
+#include <SDL.h>
+
+#include <game\mappack.h>
+#include <game\custom.h>
+#include <game\player.h>
+#include <menu\menu.h>
+#include <sdl\event.h>
+#include <game\english.h>
+#include <input\keyboard.h>
+#include <video\text.h>
+#include <input\mouse.h>
+#include <input\joystick.h>
+#include <game\audio.h>
+#include <game\game.h>
+#include <game\mainmenu.h>
+#include <game\level.h>
+#include <game\gamemenu.h>
+#include <game\object.h>
+
 void mappackpostgamemenu(void)
   {
   int count;

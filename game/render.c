@@ -19,6 +19,30 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <windows.h>
+#include <gl\GL.h>
+#include <game\render.h>
+#include <audio\audio.h>
+#include <game\game.h>
+#include <game\level.h>
+#include <game\block.h>
+#include <game\editor.h>
+#include <video\texture.h>
+#include <video\glext.h>
+#include <game\glext.h>
+#include <math\vector.h>
+#include <physics\bond.h>
+#include <physics\particle.h>
+#include <game\physics.h>
+#include <game\prerender.h>
+#include <game\object.h>
+#include <sdl\event.h>
+#include <game\lighting.h>
+#include <game\sprite.h>
+#include <video\text.h>
+
+struct Frame frame;
+
 void renderlevelback(void)
   {
   int count,count2;
@@ -88,7 +112,7 @@ void renderlevelback(void)
   glBlendFunc(GL_SRC_ALPHA,GL_ONE);
 
   glEnable(GL_STENCIL_TEST);
-
+  
   glActiveTextureARB(GL_TEXTURE1_ARB);
   glEnable(GL_TEXTURE_2D);
   glBindTexture(GL_TEXTURE_2D,texture[332].glname);

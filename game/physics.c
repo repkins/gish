@@ -19,6 +19,20 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <physics\particle.h>
+#include <game\level.h>
+#include <math\vector.h>
+#include <game\physics.h>
+#include <physics\bond.h>
+#include <game\object.h>
+#include <physics\object.h>
+#include <game\block.h>
+#include <game\game.h>
+#include <math\intersec.h>
+#include <audio\audio.h>
+#include <game\audio.h>
+#include <game\sprite.h>
+
 void setupphysics(void)
   {
   int count;

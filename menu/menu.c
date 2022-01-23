@@ -19,6 +19,34 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <windows.h>
+#include <gl\GL.h>
+#include <menu\menu.h>
+#include <input\mouse.h>
+#include <video\text.h>
+#include <input\keyboard.h>
+#include <game\options.h>
+#include <input\joystick.h>
+#include <video\texture.h>
+#include <game\english.h>
+
+int numofmenuitems;
+struct MenuItem menuitem[MAXMENUITEMS];
+
+int menuinputkeyboard = 0;
+int menuinputselectpos;
+int menuinputcursorpos;
+int menuinputinsert;
+char menuinput[256];
+char menuinputtemp[256];
+
+int joymenunum;
+int joystickmenu = 1;
+
+int currentmenuitem;
+
+char keyboardlabel[323][16];
+
 void checkmenuitems(void)
   {
   int count,count2;

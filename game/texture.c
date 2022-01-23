@@ -19,6 +19,25 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <windows.h>
+#include <gl\GL.h>
+#include <game\texture.h>
+#include <menu\menu.h>
+#include <sdl\event.h>
+#include <game\english.h>
+#include <input\keyboard.h>
+#include <video\text.h>
+#include <input\mouse.h>
+#include <video\texture.h>
+#include <SDL.h>
+#include <game\editor.h>
+#include <direct.h>
+#include <sdl\file.h>
+#include <game\level.h>
+#include <video\glext.h>
+#include <game\game.h>
+#include <game\block.h>
+
 void edittextures(void)
   {
   int count,count2;
@@ -319,7 +338,7 @@ void loadleveltiles(char *filename)
 
   x=0x17AF2E03;
   changeddir=chdir("level");
-
+  
   if ((fp=fopen(filename,"rb"))!=NULL)
     {
     fread2(&version,4,1,fp);

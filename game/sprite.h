@@ -19,13 +19,15 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#pragma once
+
 void createsprite(int points,float position[3]);
 void spritetimetolive(void);
 void deletesprite(int spritenum);
 void spritesimulation(void);
 
-int numofsprites;
-struct
+extern int numofsprites;
+extern struct Sprite
   {
   int type;
   int timetolive;

@@ -19,15 +19,18 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <video\glext.h>
+#include <main.h>
+
 void loadglextentions(void);
 
 #ifdef WINDOWS
-PFNGLACTIVETEXTUREARBPROC glActiveTextureARB=NULL;
-PFNGLCLIENTACTIVETEXTUREARBPROC glClientActiveTextureARB=NULL;
-PFNGLMULTITEXCOORD2FARBPROC glMultiTexCoord2fARB=NULL;
-PFNGLMULTITEXCOORD2FVARBPROC glMultiTexCoord2fvARB=NULL;
-PFNGLMULTITEXCOORD3FARBPROC glMultiTexCoord3fARB=NULL;
-PFNGLMULTITEXCOORD4FARBPROC glMultiTexCoord4fARB=NULL;
+extern PFNGLACTIVETEXTUREARBPROC glActiveTextureARB;
+extern PFNGLCLIENTACTIVETEXTUREARBPROC glClientActiveTextureARB;
+extern PFNGLMULTITEXCOORD2FARBPROC glMultiTexCoord2fARB;
+extern PFNGLMULTITEXCOORD2FVARBPROC glMultiTexCoord2fvARB;
+extern PFNGLMULTITEXCOORD3FARBPROC glMultiTexCoord3fARB;
+extern PFNGLMULTITEXCOORD4FARBPROC glMultiTexCoord4fARB;
 #endif
 
 struct

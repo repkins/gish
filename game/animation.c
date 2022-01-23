@@ -19,9 +19,22 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-/*
-#include "animation.h"
-*/
+#include <Windows.h>
+#include <gl\GL.h>
+#include <direct.h>
+#include <math.h>
+
+#include <video\glext.h>
+#include <video\texture.h>
+#include <game\animation.h>
+#include <game\object.h>
+#include <physics\particle.h>
+#include <physics\object.h>
+#include <math\vector.h>
+#include <game\game.h>
+#include <game\random.h>
+#include <game\audio.h>
+#include <game\sprite.h>
 
 int numofanimations;
 struct Animation animation[128];

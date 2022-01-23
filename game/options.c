@@ -19,6 +19,23 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <windows.h>
+#include <game\options.h>
+#include <menu\menu.h>
+#include <sdl\event.h>
+#include <gl\GL.h>
+#include <game\english.h>
+#include <input\keyboard.h>
+#include <input\mouse.h>
+#include <input\joystick.h>
+#include <video\text.h>
+#include <sdl\video.h>
+#include <game\glext.h>
+#include <video\texture.h>
+
+struct Option option;
+struct Control control[8];
+
 void optionsmenu(void)
   {
   int count,count2,count3;

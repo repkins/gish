@@ -19,10 +19,12 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#pragma once
+
 #define TEXT_CENTER 0x10000
 #define TEXT_END 0x20000
 
-void drawtext(unsigned char *textstring,int textposx,int textposy,int textsize,float red,float green,float blue,float alpha,...);
+void drawtext(char *textstring,int textposx,int textposy,int textsize,float red,float green,float blue,float alpha,...);
 void setuptextdisplay(void);
 void convertscreenvertex(float vec[3],int resolutionx,int resolutiony);
 void drawbackground(int texturenum,int x,int y,int sizex,int sizey,int resolutionx,int resolutiony);

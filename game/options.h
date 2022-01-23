@@ -19,12 +19,14 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#pragma once
+
 void optionsmenu(void);
 void videooptionsmenu(void);
 void drawsliderbars(void);
 void optionsmenu2(void);
 
-struct
+extern struct Option
   {
   int sound;
   int music;
@@ -32,7 +34,7 @@ struct
   float musicvolume;
   } option;
 
-struct
+extern struct Control
   {
   int key[16];
   int joysticknum;

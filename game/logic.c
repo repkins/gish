@@ -19,6 +19,27 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <stdlib.h>
+#include <windows.h>
+#include <gl\GL.h>
+#include <string.h>
+
+#include <game\level.h>
+#include <game\game.h>
+#include <game\object.h>
+#include <game\boss.h>
+#include <game\english.h>
+#include <game\setup.h>
+#include <video\text.h>
+#include <game\custom.h>
+#include <game\player.h>
+#include <game\options.h>
+#include <menu\menu.h>
+#include <input\keyboard.h>
+#include <physics\particle.h>
+#include <game\audio.h>
+#include <game\logic.h>
+
 void gamelogic(void)
   {
   int count;

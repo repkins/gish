@@ -26,7 +26,7 @@ void rendereditblocks(void);
 void editblock(void);
 void renderlevellines(void);
 
-struct
+extern struct Editor
   {
   int active;
   int mode;

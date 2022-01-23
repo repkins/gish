@@ -19,6 +19,15 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <windows.h>
+#include <gl\GL.h>
+#include <video\glfunc.h>
+#include <sdl\event.h>
+#include <game\record.h>
+#include <direct.h>
+#include <stdio.h>
+#include <sdl\file.h>
+
 void recordframe(void)
   {
   int count,count2;
@@ -39,7 +48,7 @@ void recordframe(void)
   filename[7]=48+movie.framenum%10;
 
   changeddir=chdir("movie");
-
+  
   if((fp=fopen(filename,"wb"))!=NULL)
     {
     /*

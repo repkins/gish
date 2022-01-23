@@ -19,7 +19,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-// #pragma once
+#pragma once
 
 void createbox(float position[3],float sizex,float sizey,float mass,float friction);
 void createtarboy(float position[3]);
@@ -34,13 +34,14 @@ void createbobble(int beasttype,float position[3],float sizex,float sizey,float 
 void createhead(float position[3],float sizex,float sizey,float mass,float friction);
 void createamber(float position[3]);
 void creategenerator(float position[3],float mass);
+void createareaswitch(float position[3], float sizex, float sizey);
 void deleteobject(int objectnum);
 void deleterope(int ropenum);
 void objecttimetolive(void);
 void createcar(float position[3],float sizex,float sizey,float mass,float friction);
 
 extern int numofobjects;
-typedef struct
+extern struct Object
   {
   int type;
   int texturenum;
@@ -87,10 +88,9 @@ typedef struct
   int rotate;
   int ai;
   int beasttype;
-  } Object;
-extern Object object[512];
+  } object[512];
 
-typedef struct
+extern struct ObjectType
   {
   int collide[256];
   int numofpoints;
@@ -107,11 +107,10 @@ typedef struct
     int part1;
     int part2;
     } link[256];
-  } ObjectType;
-extern ObjectType objecttype[128];
+  } objecttype[128];
 
 extern int numofropes;
-typedef struct
+extern struct Rope
   {
   int type;
   int part1;
@@ -124,5 +123,4 @@ typedef struct
   float cyclelength;
   float cyclecount;
   float range;
-  } Rope;
-extern Rope rope[1024];
+  } rope[1024];
