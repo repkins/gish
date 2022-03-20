@@ -387,4 +387,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="gish.def">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

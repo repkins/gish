@@ -1,0 +1,5 @@
+EXPORTS
+	config=config DATA
+	level DATA
+	menuitem DATA
+	menuinputkeyboard
