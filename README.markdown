@@ -1,3 +1,12 @@
+# Fork oveview
+
+This fork contains modifications and improvements on deriving code base by fork author.
+Modifications are performed on separate working branches, which are the following:
+
+- `editor-improvements` Modifications on level and campaign editing functionality adding more features enabling more flexibility on them
+- `separate-objects-output` Code refactoring so each *.c file compiles independently instead of single big translation unit
+- `savegame-concept` Proof-of-concept game state saving with change tracking
+
 # How to compile (Linux)
 
 To compile, you need to install at least the following packages:
@@ -19,7 +28,7 @@ Download and install the required libraries:
 - <http://downloads.xiph.org/releases/vorbis/libvorbis-1.3.1.zip>
     - compile *win32\VS2008\libvorbis\libvorbis_static.vcproj*
     - compile *win32\VS2008\libvorbisfile\libvorbisfile_static.vcproj*
-- <http://connect.creativelabs.com/openal/Downloads/OpenAL11CoreSDK.zip>
+- <https://www.openal.org/downloads/OpenAL11CoreSDK.zip>
     - install
     - create *C:\Program Files\OpenAL 1.1 SDK\include\AL* and copy all files from *C:\Program Files\OpenAL 1.1 SDK\include*
 
