@@ -49,7 +49,7 @@ void gameloop(void)
   setupgame();
 
   if (keyboard[SCAN_CTRL]) {
-	loadthegame();
+    loadthegame();
   }
 
   simtimer=SDL_GetTicks();
@@ -134,14 +134,14 @@ void gameloop(void)
       else
         createmenuitemempty();
 
-	  if (game.levelnum==0)
-	    {
-          createmenuitem("Save Game",(320|TEXT_CENTER),count,16,1.0f,1.0f,1.0f,1.0f);
-          setmenuitem(MO_HOTKEY,SCAN_S);
-          setmenuitem(MO_SET,&game.exit,10);
+      if (game.levelnum==0)
+        {
+        createmenuitem("Save Game",(320|TEXT_CENTER),count,16,1.0f,1.0f,1.0f,1.0f);
+        setmenuitem(MO_HOTKEY,SCAN_S);
+        setmenuitem(MO_SET,&game.exit,10);
 
-          count+=16;
-	    }
+        count+=16;
+        }
 
       if (game.over==0 && game.levelnum<64 && level.gametype==0 && game.levelnum>0 && !game.playreplay)
         createmenuitem(TXT_EXITGAME_MINUSONE,(320|TEXT_CENTER),count,16,1.0f,1.0f,1.0f,1.0f);
@@ -206,16 +206,16 @@ void gameloop(void)
       menuitem[1].active=0;
       }
 
-	if (game.exit==10)
-	  {
-		if ((savethegame()) == 0) {
-		  game.exit=0;
-		} else {
-		  game.exit=1;
-		}
+    if (game.exit==10)
+      {
+      if ((savethegame()) == 0) {
+        game.exit=0;
+      } else {
+        game.exit=1;
+      }
 
-        menuitem[2].active=0;
-	  }
+      menuitem[2].active=0;
+      }
 
     if (game.dialog>0)
       {
@@ -330,11 +330,11 @@ void gameloop(void)
       {
       setuplevel();
       setupgame();
-	  
-	  if (keyboard[SCAN_CTRL]) 
-	    {
-		loadthegame();
-		}
+
+      if (keyboard[SCAN_CTRL]) 
+        {
+        loadthegame();
+        }
       }
     if (keyboard[SCAN_P] && !prevkeyboard[SCAN_P] && game.exit==0)
       game.pause^=1;
